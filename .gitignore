@@ -1,0 +1,10 @@
+# Website data files (the JSONs the site loads)
+!restaurants/*.json
+!restaurants_index.json
+!index.html
+!recipe_database.json
+!.gitignore
+
+# Source CSVs (not needed for the live site)
+daily_prep_*.csv
+restaurant_month_dow_bowls.csv

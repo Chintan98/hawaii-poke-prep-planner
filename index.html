@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hawaii Poké — Prep Planner</title>
+<style>
+  :root {
+    --pink: #E74683;
+    --pink-light: #FBE0E1;
+    --pink-dark: #F7C1CA;
+    --green: #C6E5E4;
+    --green-dark: #8B1C23;
+    --white: #FFFFFF;
+    --bg: #f5f5f5;
+    --text: #374151;
+    --text-dark: #111827;
+    --border: #e5e7eb;
+    --radius: 0.75rem;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  .header {
+    background: var(--pink-dark);
+    padding: 1rem 2rem;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .header-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-size: 1.5rem; font-weight: 800; color: var(--pink);
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--green-dark); }
+  .header-tag { font-size: 0.85rem; color: var(--pink); font-weight: 600; }
+  
+  /* Main */
+  .main {
+    max-width: 1280px; margin: 0 auto; padding: 2rem;
+  }
+  
+  /* Controls */
+  .controls {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    display: flex; gap: 1rem; flex-wrap: wrap; align-items: end;
+  }
+  .control-group {
+    display: flex; flex-direction: column; gap: 0.35rem; flex: 1; min-width: 200px;
+  }
+  .control-group label {
+    font-size: 0.8rem; font-weight: 700; color: var(--pink);
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  select, input {
+    padding: 0.65rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 9999px;
+    font-size: 1rem; font-family: inherit;
+    background: var(--white);
+    color: var(--text-dark);
+    transition: border-color 0.2s;
+    appearance: none; -webkit-appearance: none;
+    cursor: pointer;
+  }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23E74683' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+  select:focus, input:focus { outline: none; border-color: var(--pink); }
+  
+  .btn {
+    padding: 0.65rem 2rem;
+    border-radius: 9999px;
+    font-size: 1rem; font-weight: 700;
+    border: none; cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+    font-family: inherit;
+  }
+  .btn:hover { transform: scale(1.03); opacity: 0.9; }
+  .btn-primary { background: var(--pink); color: var(--pink-light); }
+  .btn-secondary { background: var(--green); color: var(--pink); }
+  
+  /* Results */
+  .results { display: none; }
+  .results.active { display: block; }
+  
+  .day-header {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .day-title { font-size: 1.4rem; font-weight: 800; color: var(--text-dark); }
+  .day-title span { color: var(--pink); }
+  .day-stats {
+    display: flex; gap: 2rem;
+  }
+  .stat { text-align: center; }
+  .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--pink); }
+  .stat-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text); letter-spacing: 0.5px; }
+  
+  /* Prep Table */
+  .prep-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .prep-table {
+    width: 100%; border-collapse: collapse;
+  }
+  .prep-table th {
+    background: var(--pink-light);
+    color: var(--pink);
+    font-weight: 700; font-size: 0.75rem;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 0.75rem 1rem; text-align: left;
+  }
+  .prep-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+  .prep-table tr:hover td { background: #fdf2f4; }
+  .prep-table .qty { font-weight: 700; color: var(--text-dark); text-align: right; }
+  .prep-table .unit { color: var(--text); font-size: 0.85rem; }
+  .category-row td {
+    background: var(--green);
+    color: var(--text-dark);
+    font-weight: 700; font-size: 0.8rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Empty state */
+  .empty {
+    text-align: center; padding: 4rem 2rem; color: var(--text);
+  }
+  .empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .empty h3 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.5rem; }
+  
+  /* Loading */
+  .loading { text-align: center; padding: 2rem; display: none; }
+  .loading.active { display: block; }
+  .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: var(--pink);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  
+  /* Footer */
+  .footer {
+    text-align: center; padding: 2rem;
+    color: var(--text); font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    .main { padding: 1rem; }
+    .controls { flex-direction: column; }
+    .day-header { flex-direction: column; text-align: center; }
+    .day-stats { justify-content: center; }
+    .prep-table { font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">Hawaii<span>Poké</span></div>
+    <div class="header-tag">Prep Planner</div>
+  </div>
+</header>
+
+<main class="main">
+  
+  <!-- Controls -->
+  <div class="controls">
+    <div class="control-group">
+      <label>Restaurant</label>
+      <select id="restaurant-select">
+        <option value="">-- Choose restaurant --</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label>Month</label>
+      <select id="month-select">
+        <option value="">-- Choose month --</option>
+        <option value="Jan">January</option><option value="Feb">February</option>
+        <option value="Mar">March</option><option value="Apr">April</option>
+        <option value="May">May</option><option value="Jun">June</option>
+        <option value="Jul">July</option><option value="Aug">August</option>
+        <option value="Sep">September</option><option value="Oct">October</option>
+        <option value="Nov">November</option><option value="Dec">December</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label>Day</label>
+      <select id="day-select">
+        <option value="">-- Choose day --</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" onclick="loadPrep()">Show Prep</button>
+  </div>
+  
+  <!-- Loading -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p>Loading prep data…</p>
+  </div>
+  
+  <!-- Results -->
+  <div class="results" id="results">
+    <div class="day-header" id="day-header"></div>
+    <div class="prep-card">
+      <table class="prep-table" id="prep-table">
+        <thead><tr><th>Ingredient</th><th>Quantity</th><th>Unit</th></tr></thead>
+        <tbody id="prep-body"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Empty state -->
+  <div class="empty" id="empty">
+    <div class="empty-icon">🍍</div>
+    <h3>Select your restaurant and date</h3>
+    <p>See exactly what to prep based on 2025 sales data</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  Built with 2025 sales data · Hawaii Poké · All 22 locations
+</footer>
+
+<script>
+// --- Load restaurant index ---
+let restaurantIndex = [];
+let currentData = null;
+
+async function init() {
+  try {
+    const res = await fetch('restaurants_index.json');
+    restaurantIndex = await res.json();
+    const select = document.getElementById('restaurant-select');
+    restaurantIndex.forEach(r => {
+      const opt = document.createElement('option');
+      opt.value = r.file;
+      opt.textContent = r.name;
+      select.appendChild(opt);
+    });
+  } catch(e) {
+    console.error('Failed to load restaurant index:', e);
+  }
+  
+  // When restaurant changes → load data immediately
+  document.getElementById('restaurant-select').addEventListener('change', async function() {
+    const restFile = this.value;
+    if (!restFile) return;
+    document.getElementById('empty').style.display = 'none';
+    document.getElementById('loading').classList.add('active');
+    try {
+      const res = await fetch(restFile);
+      currentData = await res.json();
+      currentData.file = restFile;
+      populateDays();
+      document.getElementById('loading').classList.remove('active');
+    } catch(e) {
+      document.getElementById('loading').classList.remove('active');
+      console.error('Failed to load restaurant data:', e);
+    }
+  });
+  
+  // Populate days when month changes
+  document.getElementById('month-select').addEventListener('change', populateDays);
+}
+
+function populateDays() {
+  const month = document.getElementById('month-select').value;
+  const daySelect = document.getElementById('day-select');
+  daySelect.innerHTML = '<option value="">-- Choose day --</option>';
+  
+  if (!month || !currentData) return;
+  
+  // Get days in this month from loaded data
+  const monthMap = {Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',
+                    Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'};
+  const monthNum = monthMap[month];
+  
+  const days = Object.keys(currentData.days)
+    .filter(d => d.startsWith(`2025-${monthNum}`))
+    .sort();
+  
+  days.forEach(d => {
+    const day = d.split('-')[2];
+    const dow = currentData.days[d].dow;
+    const opt = document.createElement('option');
+    opt.value = d;
+    opt.textContent = `${d} (${dow})`;
+    daySelect.appendChild(opt);
+  });
+}
+
+async function loadPrep() {
+  const restFile = document.getElementById('restaurant-select').value;
+  const date = document.getElementById('day-select').value;
+  
+  if (!restFile || !date) return;
+  
+  document.getElementById('empty').style.display = 'none';
+  document.getElementById('loading').classList.add('active');
+  document.getElementById('results').classList.remove('active');
+  
+  try {
+    // Load restaurant data if not already loaded
+    if (!currentData || currentData.file !== restFile) {
+      const res = await fetch(restFile);
+      currentData = await res.json();
+      currentData.file = restFile;
+      populateDays(); // refresh day options
+    }
+    
+    // Show prep for this date
+    const day = currentData.days[date];
+    if (!day) {
+      document.getElementById('loading').classList.remove('active');
+      alert('No data for this date.');
+      return;
+    }
+    
+    renderDay(date, day);
+    document.getElementById('loading').classList.remove('active');
+    document.getElementById('results').classList.add('active');
+    
+  } catch(e) {
+    document.getElementById('loading').classList.remove('active');
+    console.error('Error loading data:', e);
+    alert('Failed to load data. Check console.');
+  }
+}
+
+function renderDay(date, day) {
+  const ings = day.ingredients;
+  
+  // Header
+  const totalItems = Object.keys(ings).length;
+  const dow = day.dow;
+  document.getElementById('day-header').innerHTML = `
+    <div class="day-title">${date} · <span>${dow}</span></div>
+    <div class="day-stats">
+      <div class="stat"><div class="stat-value">${totalItems}</div><div class="stat-label">Ingredients</div></div>
+    </div>
+  `;
+  
+  // Categorize ingredients
+  const categories = {
+    'Base': ['White Rice', 'Black Rice', 'Crispy Salad', 'OG Dressing', 'Crispy Salad'],
+    'Proteins': ['Salmon', 'Chicken', 'Tofu', 'Tuna', 'Beef', 'Shrimp', 'Falafel', 'Air-fried Shrimp', 'Salmon & Tuna mix', 'Yakiniku', 'Vegan protein'],
+    'Toppings': ['Mango (7 pcs)', 'Mango (4 pcs)', 'Mango', 'Edamame Beans', 'Umami Slaw', 'Cucumber', 'Kimchi', 'Broccoli', 'Seaweed', 'Gari', 'Spicy Carrots', 'Spicy Carrot', 'Red Cabbage', 'Pickled Red Cabbage', 'Pickled Red Onion', 'Egg', 'Spring Onion', 'Avocado (fan)', 'Avocado', 'Cherry tomatoes'],
+    'Sauces': ['Chilli Mayo', 'Chilli Mayo (zig zag)', 'Soy Mayo', 'Soy Mayo (zig zag)', 'Teriyaki Glaze', 'Katsu Sauce', 'Sriracha', 'Sriracha (zig zag)', 'Goma Sauce'],
+    'Garnish': ['Furikake', 'Sesame Sprinkle', 'Chilli Furikake', 'Crispy Onion', 'Crispy Coconut', 'Spring Onion'],
+    'Smoothie Bowls': ['Apple Juice', 'Pineapple Juice', 'Banana', 'Granola', 'Green Bag', 'Yellow Bag', 'Coconut/Raspberry Sprinkle'],
+  };
+  
+  let html = '';
+  for (const [cat, catIngs] of Object.entries(categories)) {
+    // Find matching ingredients
+    const matching = [];
+    for (const [ing, data] of Object.entries(ings)) {
+      const normIng = ing.trim();
+      if (catIngs.some(ci => normIng === ci || normIng.startsWith(ci))) {
+        matching.push({name: ing, ...data});
+      }
+    }
+    
+    if (matching.length === 0) continue;
+    
+    html += `<tr class="category-row"><td colspan="3">${cat}</td></tr>`;
+    matching.sort((a,b) => b.qty - a.qty);
+    for (const item of matching) {
+      html += `<tr>
+        <td>${item.name}</td>
+        <td class="qty">${formatQty(item.qty)}</td>
+        <td class="unit">${item.unit}</td>
+      </tr>`;
+    }
+  }
+  
+  // Any uncategorized
+  const used = new Set();
+  for (const catIngs of Object.values(categories)) {
+    for (const ci of catIngs) used.add(ci);
+  }
+  const uncategorized = [];
+  for (const [ing, data] of Object.entries(ings)) {
+    if (![...used].some(ci => ing === ci || ing.startsWith(ci))) {
+      uncategorized.push({name: ing, ...data});
+    }
+  }
+  if (uncategorized.length > 0) {
+    html += `<tr class="category-row"><td colspan="3">Other</td></tr>`;
+    uncategorized.sort((a,b) => b.qty - a.qty);
+    for (const item of uncategorized) {
+      html += `<tr>
+        <td>${item.name}</td>
+        <td class="qty">${formatQty(item.qty)}</td>
+        <td class="unit">${item.unit}</td>
+      </tr>`;
+    }
+  }
+  
+  document.getElementById('prep-body').innerHTML = html;
+}
+
+function formatQty(qty) {
+  if (qty >= 1000) return (qty / 1000).toFixed(1) + ' kg';
+  if (qty >= 1) return qty.toFixed(0);
+  return qty.toFixed(1);
+}
+
+// Init on load
+init();
+</script>
+
+</body>
+</html>

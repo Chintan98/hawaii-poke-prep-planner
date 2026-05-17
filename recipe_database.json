@@ -1,0 +1,341 @@
+{
+  "protein_alternatives": {
+    "mini": {
+      "chicken_tofu": "50gr",
+      "fresh_shrimp": "35gr",
+      "salmon_tuna": "40gr",
+      "falafel": "3 pcs",
+      "airfried_shrimp": "2 pcs"
+    },
+    "standard": {
+      "chicken_tofu": "100gr",
+      "fresh_shrimp": "70gr",
+      "salmon_tuna": "80gr",
+      "falafel": "6 pcs",
+      "airfried_shrimp": "3 pcs"
+    },
+    "xl": {
+      "chicken_tofu": "150gr",
+      "fresh_shrimp": "105gr",
+      "salmon_tuna": "120gr",
+      "falafel": "8 pcs",
+      "airfried_shrimp": "5 pcs"
+    },
+    "kids": {
+      "chicken_tofu": "50gr",
+      "fresh_shrimp": "35gr",
+      "salmon_tuna": "40gr",
+      "falafel": "3 pcs",
+      "airfried_shrimp": "2 pcs"
+    }
+  },
+  "_note": "Protein always customer-chosen. Gram weight from chart by size tier. Exception: Umami Dreams (fixed Salmon 40g+Tuna 40g). Avocado Bowl (no protein).",
+  "bowls": {
+    "Signatures": {
+      "Original": {
+        "size": "standard",
+        "base": {
+          "White Rice": "200gr",
+          "Crispy Salad": "30gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Soy Mayo": "40gr",
+          "Avocado (fan)": "0.5st",
+          "Umami Slaw": "40gr",
+          "Cucumber": "30gr",
+          "Seaweed": "40gr",
+          "Gari": "10gr",
+          "Pickled Red Onion": "10gr"
+        },
+        "garnish": {
+          "Furikake": "2gr"
+        }
+      },
+      "Avoloha Standard": {
+        "size": "standard",
+        "base": {
+          "White Rice": "200gr",
+          "Crispy Salad": "30gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Chilli Mayo": "40gr",
+          "Edamame Beans": "40gr",
+          "Mango (7 pcs)": "60gr",
+          "Avocado (fan)": "0.5st",
+          "Gari": "10gr",
+          "Pickled Red Cabbage": "10gr"
+        },
+        "garnish": {
+          "Sesame Sprinkle": "2gr"
+        }
+      },
+      "Avocado Bowl": {
+        "size": "standard",
+        "base": {
+          "White Rice": "200gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Avocado (fan)": "0.5st",
+          "Chilli Mayo": "40gr",
+          "Mango (7 pcs)": "60gr",
+          "Edamame Beans": "40gr",
+          "Spicy Carrots": "40gr",
+          "Gari": "10gr",
+          "Red Cabbage": "10gr"
+        },
+        "garnish": {
+          "Chilli Furikake": "2gr"
+        },
+        "protein_note": "NO PROTEIN (vegan)"
+      },
+      "Umami Dreams": {
+        "size": "standard",
+        "base": {
+          "Black Rice": "200gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Soy Mayo (zig zag)": "40gr",
+          "Umami Slaw": "40gr",
+          "Kimchi": "40gr",
+          "Cucumber": "30gr",
+          "Gari": "10gr",
+          "Egg": "1st",
+          "Sriracha (zig zag)": "10gr"
+        },
+        "garnish": {
+          "Sesame Sprinkle": "2gr",
+          "Spring Onion": "10gr"
+        },
+        "protein_note": "FIXED: Salmon 40gr + Tuna 40gr"
+      },
+      "Honolulu": {
+        "size": "standard",
+        "base": {
+          "Black Rice": "200gr",
+          "Crispy Salad": "30gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Goma Sauce": "40gr",
+          "Broccoli": "40gr",
+          "Mango (7 pcs)": "60gr",
+          "Spicy Carrot": "30gr",
+          "Soy Cucumber": "30gr",
+          "Gari": "10gr",
+          "Pickled Red Cabbage": "10gr"
+        },
+        "garnish": {
+          "Crispy Coconut": "2gr"
+        }
+      }
+    },
+    "Warm Bowls": {
+      "Yakiniku": {
+        "size": "standard",
+        "base": {
+          "White Rice": "300gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Teriyaki Glaze": "15gr",
+          "Soy Mayo": "40gr",
+          "Sriracha": "10gr",
+          "Broccoli": "40gr",
+          "Kimchi": "40gr",
+          "Umami Slaw": "40gr",
+          "Cucumber": "30gr",
+          "Pickled Red Onion": "10gr"
+        },
+        "garnish": {
+          "Furikake": "2gr",
+          "Spring Onion": "2gr"
+        }
+      },
+      "Teriyaki": {
+        "size": "standard",
+        "base": {
+          "White Rice": "200gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Teriyaki Glaze": "15gr",
+          "Chilli Mayo (zig zag)": "40gr",
+          "Edamame Beans": "40gr",
+          "Spicy Carrot": "40gr",
+          "Cucumber": "30gr",
+          "Red Cabbage": "10gr"
+        },
+        "garnish": {
+          "Crispy Onion": "2gr"
+        }
+      },
+      "Chicken Katsu": {
+        "size": "standard",
+        "base": {
+          "White Rice": "300gr",
+          "OG Dressing": "5gr",
+          "Soy Mayo": "30gr"
+        },
+        "toppings": {
+          "Katsu Sauce": "15gr",
+          "Soy Mayo": "10gr",
+          "Edamame Beans": "40gr",
+          "Umami Slaw": "40gr",
+          "Gari": "10gr",
+          "Pickled Red Cabbage": "10gr"
+        },
+        "garnish": {
+          "Spring Onion": "2gr",
+          "Sesame Sprinkle": "2gr"
+        }
+      },
+      "Tempura Shrimp": {
+        "size": "standard",
+        "base": {
+          "White Rice": "200gr"
+        },
+        "toppings": {
+          "Chilli Mayo": "40gr",
+          "Mango": "60gr",
+          "Spicy Carrot": "40gr",
+          "Avocado (fan)": "0.5st",
+          "Pickled Red Onion": "10gr"
+        },
+        "garnish": {
+          "Sesame Sprinkle": "2gr"
+        },
+        "note": "NEW bowl, no salad/dressing"
+      }
+    },
+    "Mini": {
+      "Mini Avoloha": {
+        "size": "mini",
+        "base": {
+          "White Rice": "100gr",
+          "Crispy Salad": "15gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Chilli Mayo": "25gr",
+          "Edamame Beans": "20gr",
+          "Mango (4 pcs)": "30gr",
+          "Avocado (fan)": "0.25st",
+          "Gari": "10gr",
+          "Pickled Red Cabbage": "10gr"
+        },
+        "garnish": {
+          "Sesame Sprinkle": "2gr"
+        }
+      },
+      "Mini Original": {
+        "size": "mini",
+        "base": {
+          "White Rice": "100gr",
+          "Crispy Salad": "15gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Soy Mayo": "25gr",
+          "Avocado": "0.25st",
+          "Umami Slaw": "20gr",
+          "Cucumber": "15gr",
+          "Seaweed": "20gr",
+          "Gari": "10gr",
+          "Pickled Red Onion": "10gr"
+        },
+        "garnish": {
+          "Furikake": "2gr"
+        }
+      },
+      "Mini Honolulu": {
+        "size": "mini",
+        "base": {
+          "Black Rice": "100gr",
+          "Crispy Salad": "15gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Goma Sauce": "25gr",
+          "Broccoli": "20gr",
+          "Mango (4 pcs)": "30gr",
+          "Spicy Carrot": "15gr",
+          "Soy Cucumber": "15gr",
+          "Gari": "10gr",
+          "Pickled Red Cabbage": "10gr"
+        },
+        "garnish": {
+          "Crispy Coconut": "2gr"
+        }
+      },
+      "Mini Teriyaki": {
+        "size": "mini",
+        "base": {
+          "White Rice": "100gr",
+          "OG Dressing": "5gr"
+        },
+        "toppings": {
+          "Teriyaki Glaze": "10gr",
+          "Chilli Mayo": "25gr",
+          "Edamame Beans": "20gr",
+          "Spicy Carrot": "15gr",
+          "Cucumber": "15gr",
+          "Pickled Red Cabbage": "10gr"
+        },
+        "garnish": {
+          "Crispy Onion": "2gr"
+        }
+      }
+    },
+    "Smoothie Bowls": {
+      "Hula Bowl": {
+        "size": "standard",
+        "base": {
+          "Apple Juice": "80ml",
+          "Banana": "0.5st",
+          "Green Bag": "1st"
+        },
+        "toppings": {
+          "Banana": "0.5st",
+          "Granola": "50gr"
+        },
+        "garnish": {
+          "Coconut/Raspberry Sprinkle": "15gr"
+        }
+      },
+      "Luau Bowl": {
+        "size": "standard",
+        "base": {
+          "Pineapple Juice": "80ml",
+          "Banana": "0.5st",
+          "Yellow Bag": "1st"
+        },
+        "toppings": {
+          "Banana": "0.5st",
+          "Granola": "50gr"
+        },
+        "garnish": {
+          "Coconut/Raspberry Sprinkle": "15gr"
+        }
+      }
+    },
+    "Kids": {
+      "Kids Bowl": {
+        "size": "kids",
+        "base": {
+          "White Rice": "150gr"
+        },
+        "toppings": {
+          "Edamame Beans": "20gr",
+          "Mango": "30gr",
+          "Cucumber": "20gr"
+        },
+        "garnish": {},
+        "protein_note": "Customer-chosen. Using mini protein tier until confirmed."
+      }
+    }
+  }
+}
