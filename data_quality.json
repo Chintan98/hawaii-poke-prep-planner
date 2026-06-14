@@ -1,0 +1,404 @@
+{
+  "source": "caspeco-sales_transactions_original.csv",
+  "recipe": "recipe_database.json",
+  "filter": {
+    "business_year": 2025,
+    "service_window": "11:00 <= time_of_sale < 14:00"
+  },
+  "quality": {
+    "source_rows": 5948977,
+    "rows_in_2025": 1423661,
+    "lunch_rows_2025": 830141,
+    "class_header_rows": 234953,
+    "class_header_quantity": 254031.0,
+    "class_component_rows": 284535,
+    "class_component_quantity": 306208.0,
+    "class_ignored_rows": 232563,
+    "class_ignored_quantity": 246327.0,
+    "class_unsupported_rows": 30705,
+    "class_unsupported_quantity": 32180.0,
+    "class_extra_protein_rows": 10686,
+    "class_extra_protein_quantity": 11150.0,
+    "class_wrapper_rows": 36699,
+    "class_wrapper_quantity": 39328.0
+  },
+  "results": {
+    "published_restaurants": 22,
+    "canonical_restaurants": 22,
+    "excluded_legacy_invoice_accounts": 1,
+    "restaurant_days": 7384,
+    "published_restaurant_days": 7330,
+    "excluded_legacy_invoice_days": 54,
+    "excluded_legacy_invoice_receipts": 73,
+    "lunch_receipts": 269375,
+    "mapped_bowls": 306815.0,
+    "unknown_protein_bowls": 18.0,
+    "unsupported_line_quantity": 32180.0,
+    "included_extra_proteins": 11150.0,
+    "extra_proteins_missing_portion": 0,
+    "recipe_failures": 0
+  },
+  "unknown_sites": [],
+  "top_unsupported_article_lines": [
+    {
+      "article_name": "Pika Heat",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 3647,
+      "quantity": 3807.0,
+      "sales_ex_vat": 489445.2005129644
+    },
+    {
+      "article_name": "Pika Heat Chicken",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 3561,
+      "quantity": 3739.0,
+      "sales_ex_vat": 1478.571114280686
+    },
+    {
+      "article_name": "Poke your way",
+      "reason": "Custom bowl has no recipe",
+      "line_rows": 2187,
+      "quantity": 2208.0,
+      "sales_ex_vat": 0.0
+    },
+    {
+      "article_name": "Maki Bowl",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 1884,
+      "quantity": 2042.0,
+      "sales_ex_vat": 18562.515700000025
+    },
+    {
+      "article_name": "Seoul Bowl",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 1818,
+      "quantity": 1913.0,
+      "sales_ex_vat": 18970.09039999998
+    },
+    {
+      "article_name": "Seoul Bowl Chicken",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 1588,
+      "quantity": 1672.0,
+      "sales_ex_vat": 206219.51349999936
+    },
+    {
+      "article_name": "Caesar Salad",
+      "reason": "Salad has no recipe",
+      "line_rows": 1512,
+      "quantity": 1640.0,
+      "sales_ex_vat": 17503.5152
+    },
+    {
+      "article_name": "Caesar Salad Chicken",
+      "reason": "Salad has no recipe",
+      "line_rows": 1504,
+      "quantity": 1617.0,
+      "sales_ex_vat": 161216.8823003009
+    },
+    {
+      "article_name": "Falafel bowl",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 1292,
+      "quantity": 1343.0,
+      "sales_ex_vat": 164503.02998489994
+    },
+    {
+      "article_name": "Shrimp salad",
+      "reason": "Salad has no recipe",
+      "line_rows": 1166,
+      "quantity": 1226.0,
+      "sales_ex_vat": 135116.28017203033
+    },
+    {
+      "article_name": "Maki Salmon",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 1118,
+      "quantity": 1186.0,
+      "sales_ex_vat": 154900.3281141816
+    },
+    {
+      "article_name": "Shrimp Salad",
+      "reason": "Salad has no recipe",
+      "line_rows": 1036,
+      "quantity": 1097.0,
+      "sales_ex_vat": 6750.0
+    },
+    {
+      "article_name": "Avoloha XL",
+      "reason": "XL recipe is not defined",
+      "line_rows": 707,
+      "quantity": 727.0,
+      "sales_ex_vat": 21059.696699999964
+    },
+    {
+      "article_name": "Acai Tropical",
+      "reason": "Acai item has no recipe",
+      "line_rows": 594,
+      "quantity": 614.0,
+      "sales_ex_vat": 8821.421399999992
+    },
+    {
+      "article_name": "Acai Classic",
+      "reason": "Acai item has no recipe",
+      "line_rows": 467,
+      "quantity": 473.0,
+      "sales_ex_vat": 5880.345299999998
+    },
+    {
+      "article_name": "Go XL (bigger bowl + nachos)",
+      "reason": "XL recipe is not defined",
+      "line_rows": 407,
+      "quantity": 417.0,
+      "sales_ex_vat": 16402.97710000892
+    },
+    {
+      "article_name": "Pika Heat Tofu",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 402,
+      "quantity": 413.0,
+      "sales_ex_vat": 91.07701428550001
+    },
+    {
+      "article_name": "GoXL (larger +nachos)",
+      "reason": "XL recipe is not defined",
+      "line_rows": 392,
+      "quantity": 408.0,
+      "sales_ex_vat": 16003.260899999914
+    },
+    {
+      "article_name": "Avoloha Salmon XL",
+      "reason": "XL recipe is not defined",
+      "line_rows": 379,
+      "quantity": 390.0,
+      "sales_ex_vat": 58922.707342912785
+    },
+    {
+      "article_name": "Maki Crispy Shrimp",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 362,
+      "quantity": 383.0,
+      "sales_ex_vat": 52480.62984281987
+    },
+    {
+      "article_name": "Acai Tropical Small",
+      "reason": "Acai item has no recipe",
+      "line_rows": 358,
+      "quantity": 365.0,
+      "sales_ex_vat": 25185.482957131564
+    },
+    {
+      "article_name": "Acai Classic Small",
+      "reason": "Acai item has no recipe",
+      "line_rows": 255,
+      "quantity": 252.0,
+      "sales_ex_vat": 16318.967871427954
+    },
+    {
+      "article_name": "Acai Tropical Large",
+      "reason": "Acai item has no recipe",
+      "line_rows": 236,
+      "quantity": 239.0,
+      "sales_ex_vat": 23881.69038571009
+    },
+    {
+      "article_name": "Original XL",
+      "reason": "XL recipe is not defined",
+      "line_rows": 210,
+      "quantity": 217.0,
+      "sales_ex_vat": 4907.1131000000005
+    },
+    {
+      "article_name": "Acai Classic Large",
+      "reason": "Acai item has no recipe",
+      "line_rows": 217,
+      "quantity": 214.0,
+      "sales_ex_vat": 20779.795885720006
+    },
+    {
+      "article_name": "Salmon Avocado roll",
+      "reason": "Roll has no recipe",
+      "line_rows": 182,
+      "quantity": 206.0,
+      "sales_ex_vat": 6287.057100000012
+    },
+    {
+      "article_name": "Caesar Salad Double Chicken",
+      "reason": "Salad has no recipe",
+      "line_rows": 186,
+      "quantity": 196.0,
+      "sales_ex_vat": 22390.456999946844
+    },
+    {
+      "article_name": "Maki Chicken",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 175,
+      "quantity": 188.0,
+      "sales_ex_vat": 25753.716428549964
+    },
+    {
+      "article_name": "Sushi roll combo of 3",
+      "reason": "Roll has no recipe",
+      "line_rows": 175,
+      "quantity": 179.0,
+      "sales_ex_vat": 22053.8317
+    },
+    {
+      "article_name": "Pika Heat Vegan",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 159,
+      "quantity": 168.0,
+      "sales_ex_vat": 21457.730685668546
+    },
+    {
+      "article_name": "Falafel Bowl",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 157,
+      "quantity": 159.0,
+      "sales_ex_vat": 0.0
+    },
+    {
+      "article_name": "Maki Tuna",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 145,
+      "quantity": 150.0,
+      "sales_ex_vat": 20094.01964284997
+    },
+    {
+      "article_name": "Philadelphia Salmon roll",
+      "reason": "Roll has no recipe",
+      "line_rows": 124,
+      "quantity": 141.0,
+      "sales_ex_vat": 4444.645600000006
+    },
+    {
+      "article_name": "Maki Tofu",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 125,
+      "quantity": 130.0,
+      "sales_ex_vat": 15719.572957129982
+    },
+    {
+      "article_name": "Avoloha Chicken XL",
+      "reason": "XL recipe is not defined",
+      "line_rows": 115,
+      "quantity": 121.0,
+      "sales_ex_vat": 15157.794428598554
+    },
+    {
+      "article_name": "Seoul Bowl Tofu",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 114,
+      "quantity": 115.0,
+      "sales_ex_vat": 13456.090799999978
+    },
+    {
+      "article_name": "Original Salmon XL",
+      "reason": "XL recipe is not defined",
+      "line_rows": 103,
+      "quantity": 108.0,
+      "sales_ex_vat": 17264.337914304266
+    },
+    {
+      "article_name": "Chicken Teriyaki roll",
+      "reason": "Roll has no recipe",
+      "line_rows": 87,
+      "quantity": 100.0,
+      "sales_ex_vat": 3831.3416000000034
+    },
+    {
+      "article_name": "Classic XL",
+      "reason": "XL recipe is not defined",
+      "line_rows": 91,
+      "quantity": 93.0,
+      "sales_ex_vat": 2862.4801
+    },
+    {
+      "article_name": "Acai Oreo",
+      "reason": "Acai item has no recipe",
+      "line_rows": 85,
+      "quantity": 87.0,
+      "sales_ex_vat": 5006.2423
+    },
+    {
+      "article_name": "Naima Raw Cinnamon roll bite",
+      "reason": "Roll has no recipe",
+      "line_rows": 59,
+      "quantity": 73.0,
+      "sales_ex_vat": 1664.620742856429
+    },
+    {
+      "article_name": "Avocado Mango roll",
+      "reason": "Roll has no recipe",
+      "line_rows": 71,
+      "quantity": 72.0,
+      "sales_ex_vat": 120.53580000000001
+    },
+    {
+      "article_name": "Caesar Salad Shrimp",
+      "reason": "Salad has no recipe",
+      "line_rows": 71,
+      "quantity": 71.0,
+      "sales_ex_vat": 3510.502757159998
+    },
+    {
+      "article_name": "Tofu Avocado roll",
+      "reason": "Roll has no recipe",
+      "line_rows": 59,
+      "quantity": 71.0,
+      "sales_ex_vat": 2763.3945000000003
+    },
+    {
+      "article_name": "Caesar Salad + dryck + side",
+      "reason": "Salad has no recipe",
+      "line_rows": 70,
+      "quantity": 67.0,
+      "sales_ex_vat": 13998.224599999989
+    },
+    {
+      "article_name": "Pika Heat Falafel",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 65,
+      "quantity": 66.0,
+      "sales_ex_vat": 10.7142428571
+    },
+    {
+      "article_name": "Acai Oreo Small",
+      "reason": "Acai item has no recipe",
+      "line_rows": 64,
+      "quantity": 66.0,
+      "sales_ex_vat": 1503.3930000000003
+    },
+    {
+      "article_name": "Avoloha Tofu XL",
+      "reason": "XL recipe is not defined",
+      "line_rows": 62,
+      "quantity": 62.0,
+      "sales_ex_vat": 8899.781042864286
+    },
+    {
+      "article_name": "Egg bowl",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 53,
+      "quantity": 55.0,
+      "sales_ex_vat": 931.3394428511417
+    },
+    {
+      "article_name": "Seoul Bowl Veggie balls",
+      "reason": "Legacy bowl has no current recipe",
+      "line_rows": 50,
+      "quantity": 50.0,
+      "sales_ex_vat": 6068.839899999996
+    }
+  ],
+  "assumptions": [
+    "business_date selects the 2025 service day",
+    "time_of_sale is included from 11:00:00 through 13:59:59",
+    "bowl headers and protein rows are paired within receipt",
+    "positive sales and negative returns are paired separately",
+    "explicit extra proteins use the standard protein portion",
+    "modifiers and non-protein extras are not applied to gross recipe prep",
+    "lunch-deal pricing rows are ignored because their child bowl rows are counted",
+    "XL, custom, salad, and legacy items stay excluded until a recipe is supplied"
+  ]
+}

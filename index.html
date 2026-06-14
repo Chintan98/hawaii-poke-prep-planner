@@ -2,446 +2,570 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hawaii Poké — Prep Planner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#E74683">
+<meta name="description" content="Historical 2025 lunch-rush prep quantities for Hawaii Poké restaurants, calculated from Caspeco transactions between 11:00 and 14:00.">
+<title>Hawaii Poké · 2025 Lunch Prep</title>
+<link rel="icon" type="image/svg+xml" href="logo-header.svg">
 <style>
   :root {
     --pink: #E74683;
     --pink-light: #FBE0E1;
-    --pink-dark: #F7C1CA;
-    --green: #C6E5E4;
-    --green-dark: #8B1C23;
+    --pink-muted: #F7C1CA;
+    --pink-ghost: #fef5f7;
+    --green: #2E8B7B;
+    --green-light: #e8f5f1;
     --white: #FFFFFF;
-    --bg: #f5f5f5;
-    --text: #374151;
-    --text-dark: #111827;
-    --border: #e5e7eb;
-    --radius: 0.75rem;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+    --bg: #fcfcfc;
+    --surface: #FFFFFF;
+    --text: #4a4a4a;
+    --text-dark: #1a1a1a;
+    --text-muted: #999;
+    --border: #f0f0f0;
+    --radius-sm: 10px;
+    --radius: 16px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+    --shadow-xl: 0 16px 48px rgba(0,0,0,0.10);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font);
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
   }
-  
-  /* Header */
+
+  /* ── Background decoration ── */
+  .bg-palm {
+    position: fixed; top: -60px; right: -80px;
+    width: 240px; height: 280px;
+    opacity: 0.04;
+    pointer-events: none; z-index: 0;
+    transform: rotate(-15deg);
+  }
+  .bg-palm.left {
+    left: -100px; right: auto;
+    top: auto; bottom: -80px;
+    transform: rotate(165deg) scaleX(-1);
+  }
+
+  /* ── Header ── */
   .header {
-    background: var(--pink-dark);
-    padding: 1rem 2rem;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 0.75rem 1.25rem;
     position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(231,70,131,0.08);
+    box-shadow: var(--shadow-xs);
   }
   .header-inner {
-    max-width: 1280px; margin: 0 auto;
+    max-width: 960px; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .logo {
-    font-size: 1.5rem; font-weight: 800; color: var(--pink);
-    letter-spacing: -0.5px;
+  .logo-img { height: 24px; width: auto; display: block; }
+  .header-badge {
+    font-size: 0.68rem; font-weight: 700;
+    color: var(--white); background: linear-gradient(135deg, var(--pink), #f05a94);
+    padding: 0.3rem 0.85rem; border-radius: 99px;
+    letter-spacing: 0.6px; text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(231,70,131,0.25);
   }
-  .logo span { color: var(--green-dark); }
-  .header-tag { font-size: 0.85rem; color: var(--pink); font-weight: 600; }
-  
-  /* Main */
+
+  /* ── Hero ── */
+  .hero {
+    max-width: 960px; width: 100%;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.75rem, 3vw, 2rem) clamp(1rem, 3vw, 1.5rem);
+    position: relative; z-index: 1;
+  }
+  .hero-title {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 800; color: var(--pink);
+    letter-spacing: -0.5px; line-height: 1.2;
+  }
+  .hero-title .highlight {
+    color: var(--text-dark);
+  }
+  .hero-sub {
+    font-size: 0.9rem; color: var(--text-muted);
+    margin-top: 0.35rem;
+  }
+
+  /* ── Main ── */
   .main {
-    max-width: 1280px; margin: 0 auto; padding: 2rem;
+    flex: 1;
+    max-width: 960px; width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(0.75rem, 3vw, 2rem) clamp(2rem, 5vw, 4rem);
+    position: relative; z-index: 1;
   }
-  
-  /* Controls */
-  .controls {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 1.5rem;
+
+  /* ── Controls Card ── */
+  .controls-card {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    padding: clamp(1rem, 2.5vw, 1.5rem);
     box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
-    display: flex; gap: 1rem; flex-wrap: wrap; align-items: end;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border);
   }
-  .control-group {
-    display: flex; flex-direction: column; gap: 0.35rem; flex: 1; min-width: 200px;
+  .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+    align-items: end;
   }
-  .control-group label {
-    font-size: 0.8rem; font-weight: 700; color: var(--pink);
-    text-transform: uppercase; letter-spacing: 0.5px;
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .field-label {
+    font-size: 0.68rem; font-weight: 700;
+    color: var(--pink);
+    text-transform: uppercase; letter-spacing: 1.2px;
+    padding-left: 0.25rem;
   }
   select, input {
-    padding: 0.65rem 1rem;
-    border: 2px solid var(--border);
-    border-radius: 9999px;
-    font-size: 1rem; font-family: inherit;
-    background: var(--white);
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.93rem; font-family: var(--font);
+    background: var(--bg);
     color: var(--text-dark);
-    transition: border-color 0.2s;
+    transition: all 0.2s ease;
     appearance: none; -webkit-appearance: none;
     cursor: pointer;
+    min-height: 44px;
   }
-  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23E74683' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
-  select:focus, input:focus { outline: none; border-color: var(--pink); }
-  
-  .btn {
-    padding: 0.65rem 2rem;
-    border-radius: 9999px;
-    font-size: 1rem; font-weight: 700;
-    border: none; cursor: pointer;
-    transition: transform 0.15s, opacity 0.15s;
-    font-family: inherit;
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23E74683' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.25rem;
   }
-  .btn:hover { transform: scale(1.03); opacity: 0.9; }
-  .btn-primary { background: var(--pink); color: var(--pink-light); }
-  .btn-secondary { background: var(--green); color: var(--pink); }
-  
-  /* Results */
-  .results { display: none; }
-  .results.active { display: block; }
-  
-  .day-header {
+  select:focus, input:focus {
+    outline: none; border-color: var(--pink);
     background: var(--white);
-    border-radius: var(--radius);
-    padding: 1.5rem;
+    box-shadow: 0 0 0 3px rgba(231,70,131,0.08);
+  }
+  select:invalid, select option[value=""] { color: var(--text-muted); }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 99px;
+    font-size: 0.9rem; font-weight: 700;
+    border: none; cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: var(--font);
+    white-space: nowrap;
+    min-height: 44px;
+    letter-spacing: 0.3px;
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.35rem;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--pink), #f05a94);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(231,70,131,0.3);
+  }
+  .btn-primary:hover { box-shadow: 0 6px 24px rgba(231,70,131,0.4); filter: brightness(1.05); }
+
+  /* ── Results ── */
+  .results { display: none; animation: fadeUp 0.35s ease; }
+  .results.active { display: block; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── Day Header ── */
+  .day-header {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    padding: clamp(1rem, 3vw, 1.5rem);
     box-shadow: var(--shadow);
     margin-bottom: 1rem;
+    border: 1px solid var(--border);
     display: flex; justify-content: space-between; align-items: center;
     flex-wrap: wrap; gap: 1rem;
   }
-  .day-title { font-size: 1.4rem; font-weight: 800; color: var(--text-dark); }
-  .day-title span { color: var(--pink); }
-  .day-stats {
-    display: flex; gap: 2rem;
-  }
+  .day-info h2 { font-size: clamp(1.1rem, 2.5vw, 1.35rem); font-weight: 800; color: var(--text-dark); }
+  .day-info .dow { color: var(--pink); font-weight: 700; }
+  .day-info .restaurant { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem; }
+  .day-stats { display: flex; gap: 1.5rem; }
   .stat { text-align: center; }
-  .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--pink); }
-  .stat-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text); letter-spacing: 0.5px; }
-  
-  /* Prep Table */
-  .prep-card {
-    background: var(--white);
+  .stat-val { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: var(--pink); line-height: 1; }
+  .stat-lbl { font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.8px; margin-top: 0.2rem; }
+  .method-note {
+    background: var(--green-light);
+    color: #236b60;
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.78rem;
+    border: 1px solid rgba(46,139,123,0.12);
+  }
+
+  /* ── Prep Cards ── */
+  .prep-sections { display: flex; flex-direction: column; gap: 0.75rem; }
+  .prep-section {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
     overflow: hidden;
+    transition: box-shadow 0.2s;
   }
-  .prep-table {
-    width: 100%; border-collapse: collapse;
-  }
-  .prep-table th {
-    background: var(--pink-light);
+  .prep-section:hover { box-shadow: var(--shadow); }
+  .section-header {
+    background: linear-gradient(135deg, var(--pink-ghost), var(--pink-light));
+    padding: 0.6rem 1.25rem;
+    font-weight: 800; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 1.5px;
     color: var(--pink);
-    font-weight: 700; font-size: 0.75rem;
-    text-transform: uppercase; letter-spacing: 0.5px;
-    padding: 0.75rem 1rem; text-align: left;
+    display: flex; align-items: center; gap: 0.5rem;
   }
-  .prep-table td {
-    padding: 0.65rem 1rem;
+  .section-header .marker {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: currentColor; opacity: 0.65;
+  }
+  .section-body { padding: 0.35rem 0; }
+  .ingredient-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.55rem 1.25rem;
     border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
+    transition: background 0.15s;
+    min-height: 44px;
   }
-  .prep-table tr:hover td { background: #fdf2f4; }
-  .prep-table .qty { font-weight: 700; color: var(--text-dark); text-align: right; }
-  .prep-table .unit { color: var(--text); font-size: 0.85rem; }
-  .category-row td {
-    background: var(--green);
-    color: var(--text-dark);
-    font-weight: 700; font-size: 0.8rem;
-    text-transform: uppercase; letter-spacing: 1px;
-    padding: 0.5rem 1rem;
+  .ingredient-row:last-child { border-bottom: none; }
+  .ingredient-row:active, .ingredient-row:hover { background: #fefdfc; }
+  .ing-name { font-size: 0.9rem; color: var(--text-dark); font-weight: 500; flex: 1; }
+  .ing-qty { font-weight: 700; color: var(--text-dark); text-align: right; margin-right: 0.5rem; font-size: 0.9rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .ing-unit { font-size: 0.75rem; color: var(--text-muted); min-width: 28px; text-align: right; }
+
+  /* ── Empty / Loading ── */
+  .empty-state {
+    text-align: center; padding: clamp(2rem, 8vw, 4rem) 1rem;
+    animation: fadeUp 0.5s ease;
   }
-  
-  /* Empty state */
-  .empty {
-    text-align: center; padding: 4rem 2rem; color: var(--text);
-  }
-  .empty-icon { font-size: 3rem; margin-bottom: 1rem; }
-  .empty h3 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.5rem; }
-  
-  /* Loading */
-  .loading { text-align: center; padding: 2rem; display: none; }
-  .loading.active { display: block; }
+  .empty-icon { font-size: 3.5rem; margin-bottom: 0.75rem; }
+  .empty-state h3 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.35rem; font-weight: 700; }
+  .empty-state p { color: var(--text-muted); font-size: 0.9rem; max-width: 320px; margin: 0 auto; }
+  .loader { display: none; text-align: center; padding: 3rem 1rem; }
+  .loader.active { display: block; }
   .spinner {
-    width: 40px; height: 40px;
+    width: 36px; height: 36px;
     border: 3px solid var(--border);
     border-top-color: var(--pink);
     border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    animation: spin 0.7s linear infinite;
     margin: 0 auto 1rem;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
-  
-  /* Footer */
+
+  /* ── Footer ── */
   .footer {
-    text-align: center; padding: 2rem;
-    color: var(--text); font-size: 0.8rem;
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
     border-top: 1px solid var(--border);
-    margin-top: 3rem;
+    margin-top: auto;
+    letter-spacing: 0.3px;
+    position: relative; z-index: 1;
+    background: var(--surface);
   }
-  
-  @media (max-width: 768px) {
-    .main { padding: 1rem; }
-    .controls { flex-direction: column; }
-    .day-header { flex-direction: column; text-align: center; }
-    .day-stats { justify-content: center; }
-    .prep-table { font-size: 0.85rem; }
+  /* ── Toast ── */
+  .toast {
+    position: fixed; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+    background: var(--text-dark); color: var(--white);
+    padding: 0.6rem 1.5rem; border-radius: 99px;
+    font-size: 0.8rem; font-weight: 600;
+    z-index: 200; opacity: 0; transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    box-shadow: var(--shadow-lg);
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .logo-img { height: 28px; }
+    .prep-sections { gap: 1rem; }
+    .section-body { padding: 0; }
+    .ingredient-row { padding: 0.6rem 1.5rem; }
+    .ing-name { font-size: 0.95rem; }
+    .ing-qty { font-size: 0.95rem; }
+  }
+
+  /* Print */
+  @media print {
+    .header, .controls-card, .footer, .btn, .bg-palm, .hero, .toast, .method-note { display: none; }
+    .prep-section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    body { background: white; }
+    .main { padding: 0; }
   }
 </style>
 </head>
 <body>
 
+<!-- Subtle palm tree background decorations -->
+<img class="bg-palm" src="palmera.svg" alt="" aria-hidden="true">
+<img class="bg-palm left" src="palmera.svg" alt="" aria-hidden="true">
+
+<!-- Header -->
 <header class="header">
   <div class="header-inner">
-    <div class="logo">Hawaii<span>Poké</span></div>
-    <div class="header-tag">Prep Planner</div>
+    <img class="logo-img" src="logo-header.svg" alt="Hawaii Poké">
+    <div class="header-badge">2025 Lunch</div>
   </div>
 </header>
 
+<!-- Hero -->
+<div class="hero">
+  <h1 class="hero-title">Lunch Rush Prep Quantities</h1>
+  <p class="hero-sub">Historical 2025 transactions from 11:00 to 14:00</p>
+</div>
+
+<!-- Main -->
 <main class="main">
-  
-  <!-- Controls -->
-  <div class="controls">
-    <div class="control-group">
-      <label>Restaurant</label>
-      <select id="restaurant-select">
-        <option value="">-- Choose restaurant --</option>
-      </select>
+  <div class="controls-card">
+    <div class="controls-grid">
+      <div class="field">
+        <span class="field-label">Restaurant</span>
+        <select id="restaurant-select">
+          <option value="">Select location</option>
+        </select>
+      </div>
+      <div class="field">
+        <span class="field-label">Month</span>
+        <select id="month-select">
+          <option value="">Select month</option>
+          <option value="Jan">January</option><option value="Feb">February</option>
+          <option value="Mar">March</option><option value="Apr">April</option>
+          <option value="May">May</option><option value="Jun">June</option>
+          <option value="Jul">July</option><option value="Aug">August</option>
+          <option value="Sep">September</option><option value="Oct">October</option>
+          <option value="Nov">November</option><option value="Dec">December</option>
+        </select>
+      </div>
+      <div class="field">
+        <span class="field-label">Day</span>
+        <select id="day-select">
+          <option value="">Select day</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" onclick="showPrep()">Show Prep</button>
     </div>
-    <div class="control-group">
-      <label>Month</label>
-      <select id="month-select">
-        <option value="">-- Choose month --</option>
-        <option value="Jan">January</option><option value="Feb">February</option>
-        <option value="Mar">March</option><option value="Apr">April</option>
-        <option value="May">May</option><option value="Jun">June</option>
-        <option value="Jul">July</option><option value="Aug">August</option>
-        <option value="Sep">September</option><option value="Oct">October</option>
-        <option value="Nov">November</option><option value="Dec">December</option>
-      </select>
-    </div>
-    <div class="control-group">
-      <label>Day</label>
-      <select id="day-select">
-        <option value="">-- Choose day --</option>
-      </select>
-    </div>
-    <button class="btn btn-primary" onclick="loadPrep()">Show Prep</button>
-  </div>
-  
-  <!-- Loading -->
-  <div class="loading" id="loading">
-    <div class="spinner"></div>
-    <p>Loading prep data…</p>
-  </div>
-  
-  <!-- Results -->
-  <div class="results" id="results">
-    <div class="day-header" id="day-header"></div>
-    <div class="prep-card">
-      <table class="prep-table" id="prep-table">
-        <thead><tr><th>Ingredient</th><th>Quantity</th><th>Unit</th></tr></thead>
-        <tbody id="prep-body"></tbody>
-      </table>
-    </div>
-  </div>
-  
-  <!-- Empty state -->
-  <div class="empty" id="empty">
-    <div class="empty-icon">🍍</div>
-    <h3>Select your restaurant and date</h3>
-    <p>See exactly what to prep based on 2025 sales data</p>
   </div>
 
+  <div class="loader" id="loader"><div class="spinner"></div><p>Loading prep data…</p></div>
+
+  <div class="results" id="results">
+    <div class="day-header" id="day-header"></div>
+    <div class="method-note">
+      Gross recipe prep from receipt-paired bowls and explicit extra proteins.
+      Custom, XL, salad and legacy items without recipes are excluded.
+    </div>
+    <div class="prep-sections" id="prep-sections"></div>
+  </div>
+
+  <div class="empty-state" id="empty">
+    <h3>Ready to prep</h3>
+    <p>Select a restaurant and 2025 date to see lunch-rush prep quantities</p>
+  </div>
 </main>
 
 <footer class="footer">
-  Built with 2025 sales data · Hawaii Poké · All 22 locations
+  2025 Caspeco lunch data · 11:00–14:00 · Receipt-level bowl pairing
 </footer>
 
+<div class="toast" id="toast"></div>
+
 <script>
-// --- Load restaurant index ---
 let restaurantIndex = [];
 let currentData = null;
 
+const categories = {
+  'Base': ['White Rice','Black Rice','Crispy Salad','OG Dressing'],
+  'Proteins': ['Salmon','Tuna','Fresh Shrimp','Air-fried Shrimp','Chicken','Katsu Chicken','Teriyaki Chicken','Tofu','Teriyaki Tofu','Falafel','Teriyaki Falafel','Yakiniku Beef'],
+  'Toppings': ['Mango','Edamame','Umami Slaw','Cucumber','Kimchi','Broccoli','Seaweed','Gari','Spicy Carrots','Pickled Red Cabbage','Pickled Red Onion','Egg','Spring Onion','Avocado (fan)','Avocado','Soy Cucumber'],
+  'Sauces': ['Chilli Mayo','Soy Mayo','Teriyaki Glaze','Katsu Sauce','Sriracha','Goma Sauce'],
+  'Garnish': ['Furikake','Sesame sprinkles','Chilli Furikake','Coconut flakes','Crispy onion','Spring Onion'],
+  'Smoothie Bowls': ['Apple Juice','Pineapple Juice','Banana','Granola','Coconut/Raspberry Sprinkle'],
+};
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2000);
+}
+
 async function init() {
   try {
-    const res = await fetch('restaurants_index.json');
-    restaurantIndex = await res.json();
-    const select = document.getElementById('restaurant-select');
-    restaurantIndex.forEach(r => {
-      const opt = document.createElement('option');
-      opt.value = r.file;
-      opt.textContent = r.name;
-      select.appendChild(opt);
+    const r = await fetch('restaurants_index.json');
+    restaurantIndex = await r.json();
+    const sel = document.getElementById('restaurant-select');
+    restaurantIndex.forEach(x => {
+      const o = document.createElement('option');
+      o.value = x.file; o.textContent = x.name; sel.appendChild(o);
     });
-  } catch(e) {
-    console.error('Failed to load restaurant index:', e);
-  }
-  
-  // When restaurant changes → load data immediately
-  document.getElementById('restaurant-select').addEventListener('change', async function() {
-    const restFile = this.value;
-    if (!restFile) return;
+  } catch(e) { console.error(e); }
+
+  document.getElementById('restaurant-select').addEventListener('change', async function(){
+    const f = this.value;
+    if (!f) return;
     document.getElementById('empty').style.display = 'none';
-    document.getElementById('loading').classList.add('active');
+    document.getElementById('loader').classList.add('active');
     try {
-      const res = await fetch(restFile);
-      currentData = await res.json();
-      currentData.file = restFile;
+      const r = await fetch(f);
+      currentData = await r.json();
+      currentData.file = f;
       populateDays();
-      document.getElementById('loading').classList.remove('active');
+      document.getElementById('loader').classList.remove('active');
     } catch(e) {
-      document.getElementById('loading').classList.remove('active');
-      console.error('Failed to load restaurant data:', e);
+      document.getElementById('loader').classList.remove('active');
+      toast('Failed to load restaurant data');
     }
   });
-  
-  // Populate days when month changes
+
   document.getElementById('month-select').addEventListener('change', populateDays);
 }
 
 function populateDays() {
-  const month = document.getElementById('month-select').value;
-  const daySelect = document.getElementById('day-select');
-  daySelect.innerHTML = '<option value="">-- Choose day --</option>';
-  
-  if (!month || !currentData) return;
-  
-  // Get days in this month from loaded data
-  const monthMap = {Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',
-                    Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'};
-  const monthNum = monthMap[month];
-  
-  const days = Object.keys(currentData.days)
-    .filter(d => d.startsWith(`2025-${monthNum}`))
-    .sort();
-  
+  const m = document.getElementById('month-select').value;
+  const ds = document.getElementById('day-select');
+  ds.innerHTML = '<option value="">Select day</option>';
+  if (!m || !currentData) return;
+  const mm = {Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'};
+  const days = Object.keys(currentData.days).filter(d => d.startsWith('2025-'+mm[m])).sort();
   days.forEach(d => {
-    const day = d.split('-')[2];
-    const dow = currentData.days[d].dow;
-    const opt = document.createElement('option');
-    opt.value = d;
-    opt.textContent = `${d} (${dow})`;
-    daySelect.appendChild(opt);
+    const o = document.createElement('option');
+    o.value = d;
+    o.textContent = `${d} · ${currentData.days[d].dow}`;
+    ds.appendChild(o);
   });
 }
 
-async function loadPrep() {
+async function showPrep() {
   const restFile = document.getElementById('restaurant-select').value;
   const date = document.getElementById('day-select').value;
-  
-  if (!restFile || !date) return;
-  
-  document.getElementById('empty').style.display = 'none';
-  document.getElementById('loading').classList.add('active');
-  document.getElementById('results').classList.remove('active');
-  
-  try {
-    // Load restaurant data if not already loaded
-    if (!currentData || currentData.file !== restFile) {
-      const res = await fetch(restFile);
-      currentData = await res.json();
+  if (!restFile || !date) { toast('Select restaurant and date'); return; }
+  if (!currentData || currentData.file !== restFile) {
+    document.getElementById('loader').classList.add('active');
+    try {
+      const r = await fetch(restFile);
+      currentData = await r.json();
       currentData.file = restFile;
-      populateDays(); // refresh day options
-    }
-    
-    // Show prep for this date
-    const day = currentData.days[date];
-    if (!day) {
-      document.getElementById('loading').classList.remove('active');
-      alert('No data for this date.');
-      return;
-    }
-    
-    renderDay(date, day);
-    document.getElementById('loading').classList.remove('active');
-    document.getElementById('results').classList.add('active');
-    
-  } catch(e) {
-    document.getElementById('loading').classList.remove('active');
-    console.error('Error loading data:', e);
-    alert('Failed to load data. Check console.');
+      populateDays();
+      document.getElementById('day-select').value = date;
+    } catch(e) { toast('Failed to load data'); return; }
+    document.getElementById('loader').classList.remove('active');
   }
+  render(date);
 }
 
-function renderDay(date, day) {
-  const ings = day.ingredients;
-  
-  // Header
-  const totalItems = Object.keys(ings).length;
-  const dow = day.dow;
+function render(date) {
+  const day = currentData.days[date];
+  if (!day) { toast('No data for this date'); return; }
+  document.getElementById('empty').style.display = 'none';
+
+  const restaurantName = restaurantIndex.find(x => x.file === currentData.file)?.name || '';
   document.getElementById('day-header').innerHTML = `
-    <div class="day-title">${date} · <span>${dow}</span></div>
-    <div class="day-stats">
-      <div class="stat"><div class="stat-value">${totalItems}</div><div class="stat-label">Ingredients</div></div>
+    <div class="day-info">
+      <h2>${date} · <span class="dow">${day.dow}</span></h2>
+      <div class="restaurant">${restaurantName} · 11:00–14:00</div>
     </div>
-  `;
-  
-  // Categorize ingredients
-  const categories = {
-    'Base': ['White Rice', 'Black Rice', 'Crispy Salad', 'OG Dressing', 'Crispy Salad'],
-    'Proteins': ['Salmon', 'Chicken', 'Tofu', 'Tuna', 'Beef', 'Shrimp', 'Falafel', 'Air-fried Shrimp', 'Salmon & Tuna mix', 'Yakiniku', 'Vegan protein'],
-    'Toppings': ['Mango (7 pcs)', 'Mango (4 pcs)', 'Mango', 'Edamame Beans', 'Umami Slaw', 'Cucumber', 'Kimchi', 'Broccoli', 'Seaweed', 'Gari', 'Spicy Carrots', 'Spicy Carrot', 'Red Cabbage', 'Pickled Red Cabbage', 'Pickled Red Onion', 'Egg', 'Spring Onion', 'Avocado (fan)', 'Avocado', 'Cherry tomatoes'],
-    'Sauces': ['Chilli Mayo', 'Chilli Mayo (zig zag)', 'Soy Mayo', 'Soy Mayo (zig zag)', 'Teriyaki Glaze', 'Katsu Sauce', 'Sriracha', 'Sriracha (zig zag)', 'Goma Sauce'],
-    'Garnish': ['Furikake', 'Sesame Sprinkle', 'Chilli Furikake', 'Crispy Onion', 'Crispy Coconut', 'Spring Onion'],
-    'Smoothie Bowls': ['Apple Juice', 'Pineapple Juice', 'Banana', 'Granola', 'Green Bag', 'Yellow Bag', 'Coconut/Raspberry Sprinkle'],
-  };
-  
+    <div class="day-stats">
+      <div class="stat"><div class="stat-val">${fmtCount(day.mapped_bowls)}</div><div class="stat-lbl">Mapped bowls</div></div>
+      <div class="stat"><div class="stat-val">${day.receipts}</div><div class="stat-lbl">Receipts</div></div>
+      <div class="stat"><div class="stat-val">${Object.keys(day.ingredients).length}</div><div class="stat-lbl">Ingredients</div></div>
+    </div>`;
+
+  const ings = day.ingredients;
   let html = '';
+  const used = new Set();
   for (const [cat, catIngs] of Object.entries(categories)) {
-    // Find matching ingredients
-    const matching = [];
-    for (const [ing, data] of Object.entries(ings)) {
-      const normIng = ing.trim();
-      if (catIngs.some(ci => normIng === ci || normIng.startsWith(ci))) {
-        matching.push({name: ing, ...data});
+    const items = [];
+    for (const [name, data] of Object.entries(ings)) {
+      if (!used.has(name) && catIngs.some(ci => name === ci || name.startsWith(ci))) {
+        items.push({name, ...data});
+        used.add(name);
       }
     }
-    
-    if (matching.length === 0) continue;
-    
-    html += `<tr class="category-row"><td colspan="3">${cat}</td></tr>`;
-    matching.sort((a,b) => b.qty - a.qty);
-    for (const item of matching) {
-      html += `<tr>
-        <td>${item.name}</td>
-        <td class="qty">${formatQty(item.qty)}</td>
-        <td class="unit">${item.unit}</td>
-      </tr>`;
+    if (items.length === 0) continue;
+    items.sort((a,b) => b.qty - a.qty);
+    html += `<div class="prep-section">
+      <div class="section-header">
+        <span class="marker"></span> ${cat}
+      </div>
+      <div class="section-body">`;
+    for (const it of items) {
+      const amount = formatAmount(it.qty, it.unit);
+      html += `<div class="ingredient-row">
+        <span class="ing-name">${it.name}</span>
+        <span class="ing-qty">${amount.qty}</span>
+        <span class="ing-unit">${amount.unit}</span>
+      </div>`;
     }
+    html += `</div></div>`;
   }
-  
-  // Any uncategorized
-  const used = new Set();
-  for (const catIngs of Object.values(categories)) {
-    for (const ci of catIngs) used.add(ci);
-  }
-  const uncategorized = [];
-  for (const [ing, data] of Object.entries(ings)) {
-    if (![...used].some(ci => ing === ci || ing.startsWith(ci))) {
-      uncategorized.push({name: ing, ...data});
+
+  const other = Object.entries(ings)
+    .filter(([name]) => !used.has(name))
+    .map(([name, data]) => ({name, ...data}))
+    .sort((a,b) => b.qty - a.qty);
+  if (other.length) {
+    html += `<div class="prep-section">
+      <div class="section-header"><span class="marker"></span> Other</div>
+      <div class="section-body">`;
+    for (const it of other) {
+      const amount = formatAmount(it.qty, it.unit);
+      html += `<div class="ingredient-row">
+        <span class="ing-name">${it.name}</span>
+        <span class="ing-qty">${amount.qty}</span>
+        <span class="ing-unit">${amount.unit}</span>
+      </div>`;
     }
+    html += `</div></div>`;
   }
-  if (uncategorized.length > 0) {
-    html += `<tr class="category-row"><td colspan="3">Other</td></tr>`;
-    uncategorized.sort((a,b) => b.qty - a.qty);
-    for (const item of uncategorized) {
-      html += `<tr>
-        <td>${item.name}</td>
-        <td class="qty">${formatQty(item.qty)}</td>
-        <td class="unit">${item.unit}</td>
-      </tr>`;
-    }
+
+  if (!html) {
+    html = `<div class="empty-state">
+      <h3>No mapped recipe prep</h3>
+      <p>This date has lunch transactions, but no items with a supported recipe.</p>
+    </div>`;
   }
-  
-  document.getElementById('prep-body').innerHTML = html;
+  document.getElementById('prep-sections').innerHTML = html;
+  document.getElementById('results').classList.add('active');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function formatQty(qty) {
-  if (qty >= 1000) return (qty / 1000).toFixed(1) + ' kg';
-  if (qty >= 1) return qty.toFixed(0);
-  return qty.toFixed(1);
+function fmtCount(q) {
+  return Number.isInteger(q) ? q.toFixed(0) : q.toFixed(1);
 }
 
-// Init on load
+function formatAmount(qty, unit) {
+  if (unit === 'gr' && Math.abs(qty) >= 1000) {
+    return {qty: (qty / 1000).toFixed(1), unit: 'kg'};
+  }
+  if (unit === 'ml' && Math.abs(qty) >= 1000) {
+    return {qty: (qty / 1000).toFixed(1), unit: 'L'};
+  }
+  if (Number.isInteger(qty)) return {qty: qty.toFixed(0), unit};
+  return {qty: qty.toFixed(1), unit};
+}
+
 init();
 </script>
-
 </body>
 </html>

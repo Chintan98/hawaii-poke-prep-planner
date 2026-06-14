@@ -8,3 +8,9 @@
 # Source CSVs (not needed for the live site)
 daily_prep_*.csv
 restaurant_month_dow_bowls.csv
+
+# Local inputs, generated audits, and Python cache files
+caspeco-sales_transactions_original.csv
+audit/
+__pycache__/
+.netlify/

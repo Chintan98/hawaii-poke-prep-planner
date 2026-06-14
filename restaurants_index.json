@@ -1,1 +1,134 @@
-[{"name": "Hawaii Pok\u00e9 Barkarby", "file": "restaurants/Hawaii_Pok\u00e9_Barkarby.json", "days": 359}, {"name": "Hawaii Pok\u00e9 Brunkebergstorg", "file": "restaurants/Hawaii_Pok\u00e9_Brunkebergstorg.json", "days": 356}, {"name": "Hawaii Pok\u00e9 Centralstationen", "file": "restaurants/Hawaii_Pok\u00e9_Centralstationen.json", "days": 365}, {"name": "Hawaii Pok\u00e9 Femman", "file": "restaurants/Hawaii_Pok\u00e9_Femman.json", "days": 363}, {"name": "Hawaii Pok\u00e9 Gallerian", "file": "restaurants/Hawaii_Pok\u00e9_Gallerian.json", "days": 362}, {"name": "Hawaii Pok\u00e9 Garnisonen", "file": "restaurants/Hawaii_Pok\u00e9_Garnisonen.json", "days": 244}, {"name": "Hawaii Pok\u00e9 Humleg\u00e5rdsgatan", "file": "restaurants/Hawaii_Pok\u00e9_Humleg\u00e5rdsgatan.json", "days": 284}, {"name": "Hawaii Pok\u00e9 Kungsbron", "file": "restaurants/Hawaii_Pok\u00e9_Kungsbron.json", "days": 249}, {"name": "Hawaii Pok\u00e9 Mall of Scandinavia", "file": "restaurants/Hawaii_Pok\u00e9_Mall_of_Scandinavia.json", "days": 363}, {"name": "Hawaii Pok\u00e9 Malm\u00f6", "file": "restaurants/Hawaii_Pok\u00e9_Malm\u00f6.json", "days": 345}, {"name": "Hawaii Pok\u00e9 Medborgarplatsen", "file": "restaurants/Hawaii_Pok\u00e9_Medborgarplatsen.json", "days": 359}, {"name": "Hawaii Pok\u00e9 M\u00e4ster Samuelsgatan", "file": "restaurants/Hawaii_Pok\u00e9_M\u00e4ster_Samuelsgatan.json", "days": 272}, {"name": "Hawaii Pok\u00e9 M\u00f6rby C", "file": "restaurants/Hawaii_Pok\u00e9_M\u00f6rby_C.json", "days": 362}, {"name": "Hawaii Pok\u00e9 Norrtullsgatan", "file": "restaurants/Hawaii_Pok\u00e9_Norrtullsgatan.json", "days": 359}, {"name": "Hawaii Pok\u00e9 S:t Eriksplan", "file": "restaurants/Hawaii_Pok\u00e9_S:t_Eriksplan.json", "days": 349}, {"name": "Hawaii Pok\u00e9 Solna Centrum", "file": "restaurants/Hawaii_Pok\u00e9_Solna_Centrum.json", "days": 362}, {"name": "Hawaii Pok\u00e9 Sveav\u00e4gen 31", "file": "restaurants/Hawaii_Pok\u00e9_Sveav\u00e4gen_31.json", "days": 316}, {"name": "Hawaii Pok\u00e9 Sveav\u00e4gen 51", "file": "restaurants/Hawaii_Pok\u00e9_Sveav\u00e4gen_51.json", "days": 356}, {"name": "Hawaii Pok\u00e9 Tyres\u00f6", "file": "restaurants/Hawaii_Pok\u00e9_Tyres\u00f6.json", "days": 362}, {"name": "Hawaii Pok\u00e9 Uppsala", "file": "restaurants/Hawaii_Pok\u00e9_Uppsala.json", "days": 359}, {"name": "Hawaii Pok\u00e9 \u00c5hl\u00e9ns City", "file": "restaurants/Hawaii_Pok\u00e9_\u00c5hl\u00e9ns_City.json", "days": 362}, {"name": "Missing businessunit", "file": "restaurants/Missing_businessunit.json", "days": 112}]
+[
+  {
+    "id": "3209959e-9d9c-46fc-bbe2-b2d9c19bcc01",
+    "name": "Hawaii Poké Barkarby",
+    "file": "restaurants/hawaii-poke-barkarby.json",
+    "days": 358
+  },
+  {
+    "id": "f9d10455-d16e-4371-a174-ca71c00584cb",
+    "name": "Hawaii Poké Brunkebergstorg",
+    "file": "restaurants/hawaii-poke-brunkebergstorg.json",
+    "days": 356
+  },
+  {
+    "id": "57953c88-2843-4219-9ac5-d72184b27550",
+    "name": "Hawaii Poké Centralstationen",
+    "file": "restaurants/hawaii-poke-centralstationen.json",
+    "days": 365
+  },
+  {
+    "id": "7b961461-16f7-43c2-a216-105800886187",
+    "name": "Hawaii Poké Femman",
+    "file": "restaurants/hawaii-poke-femman.json",
+    "days": 363
+  },
+  {
+    "id": "57e9caee-0ed2-40ba-8f42-1754b1768e4c",
+    "name": "Hawaii Poké Gallerian",
+    "file": "restaurants/hawaii-poke-gallerian.json",
+    "days": 362
+  },
+  {
+    "id": "fccf79c0-256f-4632-95a0-691402b300a4",
+    "name": "Hawaii Poké Garnisonen",
+    "file": "restaurants/hawaii-poke-garnisonen.json",
+    "days": 244
+  },
+  {
+    "id": "41357466-58cd-42fa-9869-1bac14c27888",
+    "name": "Hawaii Poké Humlegårdsgatan",
+    "file": "restaurants/hawaii-poke-humlegardsgatan.json",
+    "days": 284
+  },
+  {
+    "id": "3bc2784c-3d2c-4087-b3d6-26ae3cf7f622",
+    "name": "Hawaii Poké Kungsbron",
+    "file": "restaurants/hawaii-poke-kungsbron.json",
+    "days": 249
+  },
+  {
+    "id": "9f1226a0-c09e-43b5-8c99-8b05cc35118c",
+    "name": "Hawaii Poké Mall of Scandinavia",
+    "file": "restaurants/hawaii-poke-mall-of-scandinavia.json",
+    "days": 363
+  },
+  {
+    "id": "7b91eafe-c37b-44e5-81a1-647dc74367ed",
+    "name": "Hawaii Poké Malmö",
+    "file": "restaurants/hawaii-poke-malmo.json",
+    "days": 345
+  },
+  {
+    "id": "873e9780-0aec-4af2-83bc-a68508e0aaa0",
+    "name": "Hawaii Poké Medborgarplatsen",
+    "file": "restaurants/hawaii-poke-medborgarplatsen.json",
+    "days": 359
+  },
+  {
+    "id": "3877058f-b346-4dba-a2c2-35befb5f7657",
+    "name": "Hawaii Poké Mäster Samuelsgatan",
+    "file": "restaurants/hawaii-poke-master-samuelsgatan.json",
+    "days": 272
+  },
+  {
+    "id": "617b98f0-78af-4b45-a47f-fcccb71efc2a",
+    "name": "Hawaii Poké Mörby C",
+    "file": "restaurants/hawaii-poke-morby-c.json",
+    "days": 361
+  },
+  {
+    "id": "bab3e0c2-c498-486b-84d6-f6aef69d7f2f",
+    "name": "Hawaii Poké Norrtullsgatan",
+    "file": "restaurants/hawaii-poke-norrtullsgatan.json",
+    "days": 359
+  },
+  {
+    "id": "ff0317d1-62cd-4f4a-9f7b-98f28ea66fef",
+    "name": "Hawaii Poké S:t Eriksplan",
+    "file": "restaurants/hawaii-poke-s-t-eriksplan.json",
+    "days": 349
+  },
+  {
+    "id": "a5163932-ea84-46b2-832a-19a4d5e7661a",
+    "name": "Hawaii Poké Signalfabriken",
+    "file": "restaurants/hawaii-poke-signalfabriken.json",
+    "days": 228
+  },
+  {
+    "id": "b6a4852b-08b4-498b-a4bc-7ab032a15805",
+    "name": "Hawaii Poké Solna Centrum",
+    "file": "restaurants/hawaii-poke-solna-centrum.json",
+    "days": 362
+  },
+  {
+    "id": "b5d2d35a-93c8-43ac-940d-006a08173f42",
+    "name": "Hawaii Poké Sveavägen 31",
+    "file": "restaurants/hawaii-poke-sveavagen-31.json",
+    "days": 312
+  },
+  {
+    "id": "51533c1b-f4a4-40f6-b616-5bc6237022a0",
+    "name": "Hawaii Poké Sveavägen 51",
+    "file": "restaurants/hawaii-poke-sveavagen-51.json",
+    "days": 356
+  },
+  {
+    "id": "2bebaf77-1044-4d1f-8ece-32c218c4081c",
+    "name": "Hawaii Poké Tyresö",
+    "file": "restaurants/hawaii-poke-tyreso.json",
+    "days": 362
+  },
+  {
+    "id": "00f0b7b4-9444-4bb3-9ffd-4854308b45e1",
+    "name": "Hawaii Poké Uppsala",
+    "file": "restaurants/hawaii-poke-uppsala.json",
+    "days": 359
+  },
+  {
+    "id": "df35bdf1-4c25-4fcb-a7b0-d50616b6368e",
+    "name": "Hawaii Poké Åhléns City",
+    "file": "restaurants/hawaii-poke-ahlens-city.json",
+    "days": 362
+  }
+]

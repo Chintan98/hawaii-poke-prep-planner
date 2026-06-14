@@ -61,14 +61,14 @@
         },
         "toppings": {
           "Chilli Mayo": "40gr",
-          "Edamame Beans": "40gr",
-          "Mango (7 pcs)": "60gr",
+          "Edamame": "40gr",
+          "Mango": "60gr",
           "Avocado (fan)": "0.5st",
           "Gari": "10gr",
           "Pickled Red Cabbage": "10gr"
         },
         "garnish": {
-          "Sesame Sprinkle": "2gr"
+          "Sesame sprinkles": "2gr"
         }
       },
       "Avocado Bowl": {
@@ -80,11 +80,11 @@
         "toppings": {
           "Avocado (fan)": "0.5st",
           "Chilli Mayo": "40gr",
-          "Mango (7 pcs)": "60gr",
-          "Edamame Beans": "40gr",
+          "Mango": "60gr",
+          "Edamame": "40gr",
           "Spicy Carrots": "40gr",
           "Gari": "10gr",
-          "Red Cabbage": "10gr"
+          "Pickled Red Cabbage": "10gr"
         },
         "garnish": {
           "Chilli Furikake": "2gr"
@@ -98,16 +98,16 @@
           "OG Dressing": "5gr"
         },
         "toppings": {
-          "Soy Mayo (zig zag)": "40gr",
+          "Soy Mayo": "40gr",
           "Umami Slaw": "40gr",
           "Kimchi": "40gr",
           "Cucumber": "30gr",
           "Gari": "10gr",
           "Egg": "1st",
-          "Sriracha (zig zag)": "10gr"
+          "Sriracha": "10gr"
         },
         "garnish": {
-          "Sesame Sprinkle": "2gr",
+          "Sesame sprinkles": "2gr",
           "Spring Onion": "10gr"
         },
         "protein_note": "FIXED: Salmon 40gr + Tuna 40gr"
@@ -122,14 +122,14 @@
         "toppings": {
           "Goma Sauce": "40gr",
           "Broccoli": "40gr",
-          "Mango (7 pcs)": "60gr",
-          "Spicy Carrot": "30gr",
+          "Mango": "60gr",
+          "Spicy Carrots": "30gr",
           "Soy Cucumber": "30gr",
           "Gari": "10gr",
           "Pickled Red Cabbage": "10gr"
         },
         "garnish": {
-          "Crispy Coconut": "2gr"
+          "Coconut flakes": "2gr"
         }
       }
     },
@@ -163,14 +163,14 @@
         },
         "toppings": {
           "Teriyaki Glaze": "15gr",
-          "Chilli Mayo (zig zag)": "40gr",
-          "Edamame Beans": "40gr",
-          "Spicy Carrot": "40gr",
+          "Chilli Mayo": "40gr",
+          "Edamame": "40gr",
+          "Spicy Carrots": "40gr",
           "Cucumber": "30gr",
-          "Red Cabbage": "10gr"
+          "Pickled Red Cabbage": "10gr"
         },
         "garnish": {
-          "Crispy Onion": "2gr"
+          "Crispy onion": "2gr"
         }
       },
       "Chicken Katsu": {
@@ -183,14 +183,14 @@
         "toppings": {
           "Katsu Sauce": "15gr",
           "Soy Mayo": "10gr",
-          "Edamame Beans": "40gr",
+          "Edamame": "40gr",
           "Umami Slaw": "40gr",
           "Gari": "10gr",
           "Pickled Red Cabbage": "10gr"
         },
         "garnish": {
           "Spring Onion": "2gr",
-          "Sesame Sprinkle": "2gr"
+          "Sesame sprinkles": "2gr"
         }
       },
       "Tempura Shrimp": {
@@ -201,12 +201,12 @@
         "toppings": {
           "Chilli Mayo": "40gr",
           "Mango": "60gr",
-          "Spicy Carrot": "40gr",
+          "Spicy Carrots": "40gr",
           "Avocado (fan)": "0.5st",
           "Pickled Red Onion": "10gr"
         },
         "garnish": {
-          "Sesame Sprinkle": "2gr"
+          "Sesame sprinkles": "2gr"
         },
         "note": "NEW bowl, no salad/dressing"
       }
@@ -221,14 +221,14 @@
         },
         "toppings": {
           "Chilli Mayo": "25gr",
-          "Edamame Beans": "20gr",
-          "Mango (4 pcs)": "30gr",
+          "Edamame": "20gr",
+          "Mango": "30gr",
           "Avocado (fan)": "0.25st",
           "Gari": "10gr",
           "Pickled Red Cabbage": "10gr"
         },
         "garnish": {
-          "Sesame Sprinkle": "2gr"
+          "Sesame sprinkles": "2gr"
         }
       },
       "Mini Original": {
@@ -261,14 +261,14 @@
         "toppings": {
           "Goma Sauce": "25gr",
           "Broccoli": "20gr",
-          "Mango (4 pcs)": "30gr",
-          "Spicy Carrot": "15gr",
+          "Mango": "30gr",
+          "Spicy Carrots": "15gr",
           "Soy Cucumber": "15gr",
           "Gari": "10gr",
           "Pickled Red Cabbage": "10gr"
         },
         "garnish": {
-          "Crispy Coconut": "2gr"
+          "Coconut flakes": "2gr"
         }
       },
       "Mini Teriyaki": {
@@ -280,13 +280,13 @@
         "toppings": {
           "Teriyaki Glaze": "10gr",
           "Chilli Mayo": "25gr",
-          "Edamame Beans": "20gr",
-          "Spicy Carrot": "15gr",
+          "Edamame": "20gr",
+          "Spicy Carrots": "15gr",
           "Cucumber": "15gr",
           "Pickled Red Cabbage": "10gr"
         },
         "garnish": {
-          "Crispy Onion": "2gr"
+          "Crispy onion": "2gr"
         }
       }
     },
@@ -295,8 +295,7 @@
         "size": "standard",
         "base": {
           "Apple Juice": "80ml",
-          "Banana": "0.5st",
-          "Green Bag": "1st"
+          "Banana": "0.5st"
         },
         "toppings": {
           "Banana": "0.5st",
@@ -310,8 +309,7 @@
         "size": "standard",
         "base": {
           "Pineapple Juice": "80ml",
-          "Banana": "0.5st",
-          "Yellow Bag": "1st"
+          "Banana": "0.5st"
         },
         "toppings": {
           "Banana": "0.5st",
@@ -329,7 +327,7 @@
           "White Rice": "150gr"
         },
         "toppings": {
-          "Edamame Beans": "20gr",
+          "Edamame": "20gr",
           "Mango": "30gr",
           "Cucumber": "20gr"
         },
