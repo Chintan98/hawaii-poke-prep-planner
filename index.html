@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#E74683">
-<meta name="description" content="Historical 2025 lunch-rush prep quantities for Hawaii Poké restaurants, calculated from Caspeco transactions between 11:00 and 14:00.">
-<title>Hawaii Poké · 2025 Lunch Prep</title>
+<meta name="description" content="Daily prep planner for Hawaii Poké restaurants — exact quantities per bowl, per day, per location.">
+<title>Hawaii Poké · Prep Planner</title>
 <link rel="icon" type="image/svg+xml" href="logo-header.svg">
 <style>
   :root {
@@ -206,16 +206,6 @@
   .stat { text-align: center; }
   .stat-val { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: var(--pink); line-height: 1; }
   .stat-lbl { font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.8px; margin-top: 0.2rem; }
-  .method-note {
-    background: var(--green-light);
-    color: #236b60;
-    border-radius: var(--radius);
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.78rem;
-    border: 1px solid rgba(46,139,123,0.12);
-  }
-
   /* ── Prep Cards ── */
   .prep-sections { display: flex; flex-direction: column; gap: 0.75rem; }
   .prep-section {
@@ -235,10 +225,7 @@
     color: var(--pink);
     display: flex; align-items: center; gap: 0.5rem;
   }
-  .section-header .marker {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: currentColor; opacity: 0.65;
-  }
+  .section-header .icon { font-size: 1rem; }
   .section-body { padding: 0.35rem 0; }
   .ingredient-row {
     display: flex; align-items: center; justify-content: space-between;
@@ -285,6 +272,8 @@
     position: relative; z-index: 1;
     background: var(--surface);
   }
+  .footer .heart { color: var(--pink); display: inline-block; animation: pulse 1.5s ease infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
   /* ── Toast ── */
   .toast {
     position: fixed; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
@@ -309,7 +298,7 @@
 
   /* Print */
   @media print {
-    .header, .controls-card, .footer, .btn, .bg-palm, .hero, .toast, .method-note { display: none; }
+    .header, .controls-card, .footer, .btn, .bg-palm, .hero, .toast { display: none; }
     .prep-section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
     body { background: white; }
     .main { padding: 0; }
@@ -326,14 +315,14 @@
 <header class="header">
   <div class="header-inner">
     <img class="logo-img" src="logo-header.svg" alt="Hawaii Poké">
-    <div class="header-badge">2025 Lunch</div>
+    <div class="header-badge">Prep Planner</div>
   </div>
 </header>
 
 <!-- Hero -->
 <div class="hero">
-  <h1 class="hero-title">Lunch Rush Prep Quantities</h1>
-  <p class="hero-sub">Historical 2025 transactions from 11:00 to 14:00</p>
+  <h1 class="hero-title">Daily Prep Quantities</h1>
+  <p class="hero-sub">Prep quantities for today's lunch service</p>
 </div>
 
 <!-- Main -->
@@ -372,21 +361,18 @@
 
   <div class="results" id="results">
     <div class="day-header" id="day-header"></div>
-    <div class="method-note">
-      Gross recipe prep from receipt-paired bowls and explicit extra proteins.
-      Custom, XL, salad and legacy items without recipes are excluded.
-    </div>
     <div class="prep-sections" id="prep-sections"></div>
   </div>
 
   <div class="empty-state" id="empty">
+    <div class="empty-icon">🍍</div>
     <h3>Ready to prep</h3>
-    <p>Select a restaurant and 2025 date to see lunch-rush prep quantities</p>
+    <p>Select a restaurant and date to see exact prep quantities for every ingredient</p>
   </div>
 </main>
 
 <footer class="footer">
-  2025 Caspeco lunch data · 11:00–14:00 · Receipt-level bowl pairing
+  Made with <span class="heart">♥</span> by Chintan
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -394,6 +380,7 @@
 <script>
 let restaurantIndex = [];
 let currentData = null;
+const categoryIcons = {Base:'🍚',Proteins:'🥩',Toppings:'🥑',Sauces:'🥄',Garnish:'✨','Smoothie Bowls':'🍍',Other:'📦'};
 
 const categories = {
   'Base': ['White Rice','Black Rice','Crispy Salad','OG Dressing'],
@@ -483,11 +470,9 @@ function render(date) {
   document.getElementById('day-header').innerHTML = `
     <div class="day-info">
       <h2>${date} · <span class="dow">${day.dow}</span></h2>
-      <div class="restaurant">${restaurantName} · 11:00–14:00</div>
+      <div class="restaurant">${restaurantName}</div>
     </div>
     <div class="day-stats">
-      <div class="stat"><div class="stat-val">${fmtCount(day.mapped_bowls)}</div><div class="stat-lbl">Mapped bowls</div></div>
-      <div class="stat"><div class="stat-val">${day.receipts}</div><div class="stat-lbl">Receipts</div></div>
       <div class="stat"><div class="stat-val">${Object.keys(day.ingredients).length}</div><div class="stat-lbl">Ingredients</div></div>
     </div>`;
 
@@ -506,7 +491,7 @@ function render(date) {
     items.sort((a,b) => b.qty - a.qty);
     html += `<div class="prep-section">
       <div class="section-header">
-        <span class="marker"></span> ${cat}
+        <span class="icon">${categoryIcons[cat]||'📦'}</span> ${cat}
       </div>
       <div class="section-body">`;
     for (const it of items) {
@@ -526,7 +511,7 @@ function render(date) {
     .sort((a,b) => b.qty - a.qty);
   if (other.length) {
     html += `<div class="prep-section">
-      <div class="section-header"><span class="marker"></span> Other</div>
+      <div class="section-header"><span class="icon">${categoryIcons.Other}</span> Other</div>
       <div class="section-body">`;
     for (const it of other) {
       const amount = formatAmount(it.qty, it.unit);
